@@ -1,5 +1,12 @@
-import { render } from 'react-dom'
+import { render } from 'react-dom';
 
-import { App } from './App'
+import { App } from './App';
 
-render(<App />, document.getElementById('root'))
+import { ThemeProvider } from './context/ThemeContext';
+
+render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+  document.getElementById('root')
+);

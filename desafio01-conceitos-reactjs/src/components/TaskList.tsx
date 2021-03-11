@@ -3,6 +3,7 @@ import { useState } from 'react';
 import '../styles/tasklist.scss';
 
 import { FiTrash, FiCheckSquare } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
 
 interface Task {
   id: number;
@@ -13,6 +14,8 @@ interface Task {
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
+
+  const { theme } = useTheme();
 
   function handleCreateNewTask() {
     if (newTaskTitle) {
@@ -44,7 +47,11 @@ export function TaskList() {
   }
 
   return (
-    <section className="task-list container">
+    <section
+      className={
+        theme === 'light' ? 'task-list container' : 'task-list-dark container'
+      }
+    >
       <header>
         <h2>Minhas tasks</h2>
 
