@@ -3,6 +3,7 @@ import { useState } from 'react';
 import '../styles/tasklist.scss';
 
 import { FiTrash, FiCheckSquare } from 'react-icons/fi';
+import { AiOutlineClear } from 'react-icons/ai';
 import { useTheme } from '../context/ThemeContext';
 
 interface Task {
@@ -46,6 +47,10 @@ export function TaskList() {
     setTasks(filteredTasks);
   }
 
+  function handleClearAllTasks() {
+    setTasks([]);
+  }
+
   return (
     <section
       className={
@@ -56,6 +61,16 @@ export function TaskList() {
         <h2>Minhas tasks</h2>
 
         <div className="input-group">
+          {tasks.length > 1 && (
+            <button
+              type="submit"
+              className="clear-all"
+              onClick={handleClearAllTasks}
+            >
+              Limpar tudo
+              <AiOutlineClear size={16} color="#fff" />
+            </button>
+          )}
           <input
             type="text"
             placeholder="Adicionar novo todo"

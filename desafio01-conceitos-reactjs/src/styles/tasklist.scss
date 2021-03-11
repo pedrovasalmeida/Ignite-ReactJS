@@ -59,6 +59,24 @@ section.task-list {
         }
       }
     }
+
+    button.clear-all {
+      background: #ad273f;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      padding: 14px;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.95);
+      }
+    }
   }
 
   main {
@@ -219,6 +237,24 @@ section.task-list-dark {
         &:hover {
           filter: brightness(0.95);
         }
+      }
+    }
+
+    button.clear-all {
+      background: #ad273f;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      padding: 14px;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.95);
       }
     }
   }
