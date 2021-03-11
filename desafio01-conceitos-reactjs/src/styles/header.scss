@@ -11,8 +11,17 @@ header.header {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .switcher {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 20px;
+    }
   }
 }
+
 header.header-dark {
   background: #112169;
   padding-top: 2rem;
@@ -26,5 +35,13 @@ header.header-dark {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .switcher {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 20px;
+    }
   }
 }
