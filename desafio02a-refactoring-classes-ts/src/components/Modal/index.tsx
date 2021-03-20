@@ -11,7 +11,7 @@ function Modal({ isOpen, setIsOpen, children }: ModalProps) {
   const [modalStatus, setModalStatus] = useState(false);
 
   useEffect(() => {
-    setModalStatus(!isOpen);
+    setModalStatus(isOpen);
   }, [isOpen]);
 
   return (
