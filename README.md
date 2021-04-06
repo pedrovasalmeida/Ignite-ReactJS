@@ -22,7 +22,7 @@ Repositório criado para guardar a trajetória/conhecimentos do Ignite, na trilh
     - ContextAPI
     - Hooks
 
-[ ] - **Chapter III** - _Next.js, JAMStack_
+[x] - **Chapter III** - _Next.js, JAMStack_
 
     - Next.js
     - Next-Auth
