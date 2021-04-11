@@ -12,7 +12,7 @@ export function Header() {
       as="header"
       w="100%"
       h="20"
-      maxWidth={1400}
+      maxWidth={1480}
       mx="auto"
       mt="4"
       px="6"
@@ -66,7 +66,7 @@ export function Header() {
         <Flex align="center">
           <Box mr="4" textAlign="right">
             <Text>Pedro Vasconcellos</Text>
-            <Text color="gray.300" fontSize="sm">
+            <Text color="gray.300" fontSize="small">
               pedrovasalmeida@gmail.com
             </Text>
           </Box>
