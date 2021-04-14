@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Input } from '../components/Form/Input';
+import { useRouter } from 'next/router';
 
 type SignInFormData = {
   email: string;
@@ -22,14 +23,15 @@ export default function SignIn() {
 
   const { errors } = formState;
 
-  console.log(errors);
+  const router = useRouter();
 
   const handleSignIn: SubmitHandler<SignInFormData> = async ({
     email,
     password,
   }) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log({ email, password });
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    router.push('/dashboard');
   };
 
   return (
