@@ -27,4 +27,8 @@ export const theme = extendTheme({
       },
     },
   },
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  },
 });
