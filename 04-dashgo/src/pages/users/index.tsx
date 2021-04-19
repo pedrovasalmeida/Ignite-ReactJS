@@ -25,9 +25,10 @@ import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import { Header } from '../../components/Header';
 import { Pagination } from '../../components/Pagination';
 import { Sidebar } from '../../components/Sidebar';
-import { useUsers } from '../../services/hooks/useUsers';
+import { getUsers, useUsers } from '../../services/hooks/useUsers';
 import { queryClient } from '../../services/queryClient';
 import { api } from '../../services/api';
+import { GetServerSideProps } from 'next';
 
 export default function UserList() {
   const [page, setPage] = useState(1);
@@ -38,7 +39,7 @@ export default function UserList() {
     md: true,
   });
 
-  async function handlePrefetchUser(userId: number) {
+  async function handlePrefetchUser(userId: string) {
     await queryClient.prefetchQuery(
       ['user', userId],
       async () => {
@@ -112,9 +113,7 @@ export default function UserList() {
                         <Box>
                           <Link
                             color="purple.400"
-                            onMouseEnter={() =>
-                              handlePrefetchUser(Number(user.id))
-                            }
+                            onMouseEnter={() => handlePrefetchUser(user.id)}
                           >
                             <Text fontWeight="bold">{user.name}</Text>
                           </Link>
@@ -154,3 +153,16 @@ export default function UserList() {
     </Box>
   );
 }
+
+/** O miragejs ainda não suporta uso do ssr, sendo impossível realizar essa req aqui no ssr. */
+
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const { users, totalCount } = await getUsers(1);
+
+//   return {
+//     props: {
+//       users,
+//       totalCount,
+//     },
+//   };
+// };

@@ -8,7 +8,7 @@ const Chart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
 });
 
-const options = {
+const options: any = {
   chart: {
     toolbar: {
       show: false,

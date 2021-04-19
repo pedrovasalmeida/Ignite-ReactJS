@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery, UseQueryOptions } from 'react-query';
 import { api } from '../api';
 
 type User = {
@@ -14,6 +14,8 @@ type GetUsersResponse = {
 };
 
 export async function getUsers(page: number): Promise<GetUsersResponse> {
+  console.log(`page: ${page}`);
+
   const { data, headers } = await api.get('users', {
     params: {
       page,
@@ -36,8 +38,14 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
   return { users, totalCount };
 }
 
-export function useUsers(page: number) {
+export function useUsers(
+  page: number,
+  // para uso do initialData com mirage, ira retornar 404
+  // o miragejs ainda não aceita uso do ssr
+  options?: UseQueryOptions<GetUsersResponse>
+) {
   return useQuery(['users', page], () => getUsers(page), {
     staleTime: 1000 * 60 * 10, // 10 minutos
+    // ...options,
   });
 }
